@@ -25,7 +25,7 @@ def window():
     root.iconphoto(False, icon)
     root.resizable(width=False, height=False)
     root.mainloop()
-
+    ##For now, it does nothing
 
 def CallRiot():
     try:
