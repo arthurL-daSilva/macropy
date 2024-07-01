@@ -10,6 +10,6 @@ all the process. Finaly, it will click on League Of Legends and
 you will only click on Play and enjoy.
 
 # Future plans
-- implement an GUI
+- *implement an GUI*
 - try to make a register system for a max of 4 accounts
 - adapt for VALORANT
