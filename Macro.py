@@ -6,10 +6,10 @@ from pyautogui import ImageNotFoundException
 
 value = 0
 value2 = 0
-image1 = 'Riotclient.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image2 = 'Username.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image3 = 'LOL.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image4 = 'Username2.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image1 = 'Img\\Riotclient.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image2 = 'Img\\Username.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image3 = 'Img\\LOL.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image4 = 'Img\\Username2.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
 
 def window():
     root = tk.Tk()
