@@ -1,20 +1,31 @@
 import pyautogui as bot
 import time, os, sys
 import tkinter as tk
+from tkinter import PhotoImage
+from PIL import Image, ImageTk
 from tkinter import messagebox
 from pyautogui import ImageNotFoundException
 
 value = 0
 value2 = 0
-image1 = 'Img\\Riotclient.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image2 = 'Img\\Username.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image3 = 'Img\\LOL.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
-image4 = 'Img\\Username2.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image1 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Riotclient.png'
+image2 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Username.png'
+image3 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\LOL.png'
+image4 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Username2.png'
 
 def window():
     root = tk.Tk()
-    root.title("Contas LOL")
-    ## GUI(in development)
+    root.title("Minhas contas - (League of Legends)")
+    root.geometry("450x250")
+    root.config(background="#4F4F4F")
+    icon_path = 'Img\\logo.png'
+    image = Image.open(icon_path)
+    image = image.resize((64, 64), Image.Resampling.LANCZOS)
+    icon = ImageTk.PhotoImage(image)
+    root.iconphoto(False, icon)
+    root.resizable(width=False, height=False)
+    root.mainloop()
+
 
 def CallRiot():
     try:
@@ -26,7 +37,7 @@ def CallRiot():
         else:
             raise ImageNotFoundException
     except ImageNotFoundException:
-        os.startfile('RiotClientServices.exe') ## <-- YOU HAVE TO PUT THE PATH OF THE RIOT CLIENT HERE
+        os.startfile('C:\\Riot Games\\Riot Client\\RiotClientServices.exe')
         return 0
 
 def Click(number):
@@ -53,14 +64,14 @@ def Click(number):
         except ImageNotFoundException:
             return 0
 
-def typewrite(number):    ##Account
+def typewrite(number):
     if number == 1:
-        bot.write('account',interval=0.03) ## <-- Your Username
+        bot.write('jesterdeath3',interval=0.03)
         bot.press('tab')
-        bot.write('password',interval=0.03) ## <-- Your Password
+        bot.write('casa470a',interval=0.03)
         bot.press('enter')
     else:
-        messagebox.showerror("Error", "Box not found!")
+        messagebox.showerror("Erro", "Caixa de texto não encontrada!")
         sys.exit()
     
 def ClickOnLol():
@@ -74,10 +85,10 @@ def ClickOnLol():
             search += 1
 
     if search == 60:
-        messagebox.showerror("Error", "Box not found!")
+        messagebox.showerror("Error", "Imagem não encontrada!")
         sys.exit()
 
-
+window()
 value2 = CallRiot()
 value = Click(value2)
 typewrite(value)
