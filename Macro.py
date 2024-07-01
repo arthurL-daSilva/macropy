@@ -6,15 +6,15 @@ from pyautogui import ImageNotFoundException
 
 value = 0
 value2 = 0
-image1 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Riotclient.png'
-image2 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Username.png'
-image3 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\LOL.png'
-image4 = 'E:\\PROJETOS\\Programming Languages\\Python\\Img\\Username2.png'
+image1 = 'Riotclient.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image2 = 'Username.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image3 = 'LOL.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
+image4 = 'Username2.png'    ## <-- YOU HAVE TO PUT THE PATH OF THE IMAGE HERE
 
 def window():
     root = tk.Tk()
     root.title("Contas LOL")
-
+    ## GUI(in development)
 
 def CallRiot():
     try:
@@ -26,7 +26,7 @@ def CallRiot():
         else:
             raise ImageNotFoundException
     except ImageNotFoundException:
-        os.startfile('C:\\Riot Games\\Riot Client\\RiotClientServices.exe')
+        os.startfile('RiotClientServices.exe') ## <-- YOU HAVE TO PUT THE PATH OF THE RIOT CLIENT HERE
         return 0
 
 def Click(number):
@@ -53,11 +53,11 @@ def Click(number):
         except ImageNotFoundException:
             return 0
 
-def typewrite(number):
+def typewrite(number):    ##Account
     if number == 1:
-        bot.write('account',interval=0.03)
+        bot.write('account',interval=0.03) ## <-- Your Username
         bot.press('tab')
-        bot.write('password',interval=0.03)
+        bot.write('password',interval=0.03) ## <-- Your Password
         bot.press('enter')
     else:
         messagebox.showerror("Error", "Box not found!")
