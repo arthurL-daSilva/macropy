@@ -8,12 +8,12 @@ from pyautogui import ImageNotFoundException
 
 value = 0
 value2 = 0
-image1 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Riotclient.png'
-image2 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Username.png'
-image3 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\LOL.png'
-image4 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Username2.png'
-image5 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\RiotTop.png'
-image6 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\logo.png'
+image1 = '\\Img\\Riotclient.png'
+image2 = '\\Img\\Username.png'
+image3 = '\\Img\\LOL.png'
+image4 = '\\Img\\Username2.png'
+image5 = '\\Img\\RiotTop.png'
+image6 = '\\Img\\logo.png'
 
 def CallRiot():
     try:
@@ -25,7 +25,7 @@ def CallRiot():
         else:
             raise ImageNotFoundException
     except ImageNotFoundException:
-        os.startfile('C:\\Riot Games\\Riot Client\\RiotClientServices.exe')
+        os.startfile('C:\\Riot Games\\Riot Client\\RiotClientServices.exe') # <---- Put the Riot Client path in here
         return 0
 
 def Click(number):
@@ -57,12 +57,12 @@ def Click(number):
 
 def typewrite(number):
     if number == 1:
-        bot.write('jesterdeath3',interval=0.03)
+        bot.write('Account',interval=0.03)
         bot.press('tab')
-        bot.write('casa470a',interval=0.03)
+        bot.write('Password',interval=0.03)
         bot.press('enter')
     else:
-        messagebox.showerror("Erro", "Caixa de texto não encontrada!")
+        messagebox.showerror("Erro", "Text Box not found!")
         sys.exit()
     
 def ClickOnLol():
@@ -79,11 +79,15 @@ def ClickOnLol():
             search += 1
 
     if search == 60:
-        messagebox.showerror("Erro", "Imagem não encontrada!")
+        messagebox.showerror("Erro", "Image not found!")
         sys.exit()
 
+#
+#
+# For now, the GUI only works with ONE account, but I will fix this later
+
 root = tk.Tk()
-root.title("Minhas contas - (League of Legends)")
+root.title("My accounts - (League of Legends)")
 root.geometry("450x250")
 image = Image.open(image6)
 image = image.resize((64, 64), Image.Resampling.LANCZOS)
@@ -95,43 +99,43 @@ label_name.place(x=0, y=10)
 const = 0
 
 def acc1():
-    label_name.config(text="Entrando na Main")
+    label_name.config(text="Entering your account")
     value2 = CallRiot()
     value = Click(value2)
     typewrite(value)
     ClickOnLol()
 
 def acc2():
-    label_name.config(text="Entrando na Death")
+    label_name.config(text="Entering your account")
     value2 = CallRiot()
     value = Click(value2)
     typewrite(value)
     ClickOnLol()
 
 def acc3():
-    label_name.config(text="Entrando na Valleyy2")
+    label_name.config(text="Entering your account")
     value2 = CallRiot()
     value = Click(value2)
     typewrite(value)
     ClickOnLol()
 
 def acc4():
-    label_name.config(text="Entrando na Sekiryyuutei")
+    label_name.config(text="Entering your account")
     value2 = CallRiot()
     value = Click(value2)
     typewrite(value)
     ClickOnLol()
 
-button1 = tk.Button(root, text="jester2146", command=acc1, relief='groove')
+button1 = tk.Button(root, text="Account 1", command=acc1, relief='groove')
 button1.place(x=10, y=50)
 
-button2 = tk.Button(root, text="jester death", command=acc2, relief='groove')
+button2 = tk.Button(root, text="Account 2", command=acc2, relief='groove')
 button2.place(x=10, y=90)
 
-button3 = tk.Button(root, text="Valleyy2", command=acc3, relief='groove')
+button3 = tk.Button(root, text="Account 3", command=acc3, relief='groove')
 button3.place(x=10, y=130)
 
-button4 = tk.Button(root, text="Sekiryyuutei", command=acc4, relief='groove')
+button4 = tk.Button(root, text="Account 4", command=acc4, relief='groove')
 button4.place(x=10, y=170)
 
 root.mainloop()
