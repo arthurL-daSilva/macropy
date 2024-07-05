@@ -89,11 +89,11 @@ def load_account_data():
         lines = file.readlines()
 
         if len(lines) >= 1:
-            entry_user1.insert(0, lines[0].strip()) #0  -> começando na posição 0
+            entry_user1.insert(0, lines[0].strip()) 
         if len(lines) >= 2:
-            entry_pass1.insert(0, lines[1].strip()) #lines[1] -> seria o número da linha contida no arquivo
+            entry_pass1.insert(0, lines[1].strip())
         if len(lines) >= 3:
-            entry_user2.insert(0, lines[2].strip()) #.strip() -> Remove espaços em branco
+            entry_user2.insert(0, lines[2].strip())
         if len(lines) >= 4:
             entry_pass2.insert(0, lines[3].strip())
         if len(lines) >= 5:
