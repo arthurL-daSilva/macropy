@@ -107,7 +107,7 @@ def load_account_data():
 
 def save_account_data():
     with open(data_file, 'w') as file:
-        file.write(entry_user1.get() + '\n') #entry_user.get() -> escreve o conteúdo do campo de entrada no arquivo, seguido por um caracter de nova linha '\n'
+        file.write(entry_user1.get() + '\n')
         file.write(entry_pass1.get() + '\n')
         file.write(entry_user2.get() + '\n')
         file.write(entry_pass2.get() + '\n')
