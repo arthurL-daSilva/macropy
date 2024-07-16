@@ -202,11 +202,11 @@ def Switch_to_Valorant():
             lines = file.readlines()
 
             if len(lines) >= 1:
-                entry_user1_2.insert(0, lines[0].strip()) #0  -> começando na posição 0
+                entry_user1_2.insert(0, lines[0].strip()) 
             if len(lines) >= 2:
-                entry_pass1_2.insert(0, lines[1].strip()) #lines[1] -> seria o número da linha contida no arquivo
+                entry_pass1_2.insert(0, lines[1].strip())
             if len(lines) >= 3:
-                entry_user2_2.insert(0, lines[2].strip()) #.strip() -> Remove espaços em branco
+                entry_user2_2.insert(0, lines[2].strip())
             if len(lines) >= 4:
                 entry_pass2_2.insert(0, lines[3].strip())
             if len(lines) >= 5:
@@ -220,7 +220,7 @@ def Switch_to_Valorant():
         
     def save_account_data_valorant():
         with open(data_file2, 'w') as file:
-            file.write(entry_user1_2.get() + '\n') #entry_user.get() -> escreve o conteúdo do campo de entrada no arquivo, seguido por um caracter de nova linha '\n'
+            file.write(entry_user1_2.get() + '\n')
             file.write(entry_pass1_2.get() + '\n')
             file.write(entry_user2_2.get() + '\n')
             file.write(entry_pass2_2.get() + '\n')
