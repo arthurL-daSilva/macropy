@@ -1,5 +1,5 @@
 # macropy
-Mini macro for automatic login
+Macro, an automatic login for League of Legends or Valorant games through the RiotClient
 
 # how it works?
 It's in early development, but already works on Windowns 11 and
