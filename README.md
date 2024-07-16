@@ -14,5 +14,5 @@ you will only click on Play and enjoy.
 - ~implement an GUI~
 - ~try to make a register system for a max of 4 accounts~
 - ~Put the path of the Riot Client in the GUI~
-- switch to VALORANT in the GUI
-- adapt for VALORANT
+- ~switch to VALORANT in the GUI~
+- ~adapt for VALORANT~
