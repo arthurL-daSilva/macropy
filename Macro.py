@@ -8,18 +8,18 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 from pyautogui import ImageNotFoundException
 
-image1 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Riotclient.png'
-image2 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Username.png'
-image3 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\LOL.png'
-image4 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Username2.png'
-image5 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\RiotTop.png'
-image6 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\logo.png'
-image7 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\League_open.png'
-image8 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\League.png'
-image9 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\VALORANT.png'
-image10 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Val.png'
-image11 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Valorant_logo.png'
-image12 = 'E:\\PROJETOS\\Programming Languages\\Python\\MacroGaming\\Img\\Valorant_open.png'
+image1 = 'Img\\Riotclient.png'
+image2 = 'Img\\Username.png'
+image3 = 'Img\\LOL.png'
+image4 = 'Img\\Username2.png'
+image5 = 'Img\\RiotTop.png'
+image6 = 'Img\\logo.png'
+image7 = 'Img\\League_open.png'
+image8 = 'Img\\League.png'
+image9 = 'Img\\VALORANT.png'
+image10 = 'Img\\Val.png'
+image11 = 'Img\\Valorant_logo.png'
+image12 = 'Img\\Valorant_open.png'
 data_file = 'account_data_LOL.txt'
 data_file2 = 'account_data_VAL.txt'
 data_path = 'Riot_Client_path.txt'
@@ -99,11 +99,11 @@ def load_account_data():
         lines = file.readlines()
 
         if len(lines) >= 1:
-            entry_user1.insert(0, lines[0].strip()) #0  -> começando na posição 0
+            entry_user1.insert(0, lines[0].strip())
         if len(lines) >= 2:
-            entry_pass1.insert(0, lines[1].strip()) #lines[1] -> seria o número da linha contida no arquivo
+            entry_pass1.insert(0, lines[1].strip()) 
         if len(lines) >= 3:
-            entry_user2.insert(0, lines[2].strip()) #.strip() -> Remove espaços em branco
+            entry_user2.insert(0, lines[2].strip()) 
         if len(lines) >= 4:
             entry_pass2.insert(0, lines[3].strip())
         if len(lines) >= 5:
@@ -117,7 +117,7 @@ def load_account_data():
 
 def save_account_data():
     with open(data_file, 'w') as file:
-        file.write(entry_user1.get() + '\n') #entry_user.get() -> escreve o conteúdo do campo de entrada no arquivo, seguido por um caracter de nova linha '\n'
+        file.write(entry_user1.get() + '\n')
         file.write(entry_pass1.get() + '\n')
         file.write(entry_user2.get() + '\n')
         file.write(entry_pass2.get() + '\n')
@@ -448,10 +448,6 @@ def load_RiotClient_path():
             if file_path:
                 application_path.set(file_path)
                 label_path.config(text="Riot Client pronto!")
-
-#threading.Thread() -> Cria a thread
-#threading.Thread(target=) -> qual função será executada quando a thread iniciar
-#threading.Thread(target=... args=) -> contém argumentos que serão passados para a função em 'target'
 
 def acc1():
     if not entry_user1.get() or not entry_pass1.get():
