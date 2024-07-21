@@ -8,18 +8,26 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 from pyautogui import ImageNotFoundException
 
-image1 = 'Img\\Riotclient.png'
-image2 = 'Img\\Username.png'
-image3 = 'Img\\LOL.png'
-image4 = 'Img\\Username2.png'
-image5 = 'Img\\RiotTop.png'
-image6 = 'Img\\logo.png'
-image7 = 'Img\\League_open.png'
-image8 = 'Img\\League.png'
-image9 = 'Img\\VALORANT.png'
-image10 = 'Img\\Val.png'
-image11 = 'Img\\Valorant_logo.png'
-image12 = 'Img\\Valorant_open.png'
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+image1 = resource_path('img/Riotclient.png')
+image2 = resource_path('img/Username.png')
+image3 = resource_path('img/LOL.png')
+image4 = resource_path('img/Username2.png')
+image5 = resource_path('img/RiotTop.png')
+image6 = resource_path('img/logo.png')
+image7 = resource_path('img/League_open.png')
+image8 = resource_path('img/League.png')
+image9 = resource_path('img/VALORANT.png')
+image10 = resource_path('img/Val.png')
+image11 = resource_path('img/Valorant_logo.png')
+image12 = resource_path('img/Valorant_open.png')
 ClientName = 'RiotClientServices.exe'
 data_file = 'account_data_LOL.txt'
 data_file2 = 'account_data_VAL.txt'
