@@ -166,12 +166,11 @@ def Switch_to_Valorant():
     new_root.protocol("WM_DELETE_WINDOW", lambda: (root.destroy()))
 
     def ClickOnValorant():
-    
         search = 0
         while search < 60:
             try:
-                img12 = bot.locateCenterOnScreen(image12, confidence=0.7)
-                bot.click(img12.x, img12.y)
+                img9 = bot.locateCenterOnScreen(image9, confidence=0.9)
+                bot.click(img9.x, img9.y)
                 search = 61
             except:
                 search += 1
