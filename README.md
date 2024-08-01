@@ -10,6 +10,9 @@ already open. Then, will try to click on the Username box and do
 all the process. Finaly, it will click on League Of Legends and
 you will only click on Play and enjoy.
 
+# Preview
+![banner](https://github.com/arthurL-daSilva/macropy/blob/main/Img/Preview.png)
+
 # Future plans
 - ~implement an GUI~
 - ~try to make a register system for a max of 4 accounts~
