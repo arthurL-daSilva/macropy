@@ -17,9 +17,11 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 image1 = resource_path('img/Riotclient.png')
-image2 = resource_path('img/Username.png')
+image2 = resource_path('img/Username_ing.png')
+image2_1 = resource_path('img/Username_port.png')
 image3 = resource_path('img/LOL.png')
-image4 = resource_path('img/Username2.png')
+image4 = resource_path('img/Username2_ing.png')
+image4_1 = resource_path('img/Username2_port.png')
 image5 = resource_path('img/RiotTop.png')
 image6 = resource_path('img/logo.png')
 image7 = resource_path('img/League_open.png')
@@ -46,8 +48,8 @@ def CallRiot():
         return 0
 
 def Click(number):
-    time.sleep(2)
     if number == 0:
+        time.sleep(2)
         search = 0
         while search < 60:
             try:
@@ -56,18 +58,28 @@ def Click(number):
                 search = 61
                 return 1
             except:
-                search += 1
+                    try:
+                        img2_1 = bot.locateCenterOnScreen(image2_1, confidence=0.9)
+                        bot.click(img2_1.x, img2_1.y)
+                        search = 61
+                    except:
+                        search += 1
         if search == 60:
             return 0
     else:
         try:
-            time.sleep(1.5)
+            time.sleep(1)
             img4 = bot.locateCenterOnScreen(image4, confidence=0.9)
             if img4 is not None:
                 bot.click(img4.x, img4.y)
                 return 1
             else:
-                raise ImageNotFoundException
+                img4_1 = bot.locateCenterOnScreen(image4_1, confidence=0.9)
+                if img4_1 is not None:
+                    bot.click(img4_1.x, img4.y)
+                    return 1
+                else:
+                    raise ImageNotFoundException
         except ImageNotFoundException:
             return 0
 
@@ -108,11 +120,11 @@ def load_account_data():
         lines = file.readlines()
 
         if len(lines) >= 1:
-            entry_user1.insert(0, lines[0].strip()) 
+            entry_user1.insert(0, lines[0].strip()) #0  -> começando na posição 0
         if len(lines) >= 2:
-            entry_pass1.insert(0, lines[1].strip()) 
+            entry_pass1.insert(0, lines[1].strip()) #lines[1] -> seria o número da linha contida no arquivo
         if len(lines) >= 3:
-            entry_user2.insert(0, lines[2].strip()) 
+            entry_user2.insert(0, lines[2].strip()) #.strip() -> Remove espaços em branco
         if len(lines) >= 4:
             entry_pass2.insert(0, lines[3].strip())
         if len(lines) >= 5:
@@ -126,7 +138,7 @@ def load_account_data():
 
 def save_account_data():
     with open(data_file, 'w') as file:
-        file.write(entry_user1.get() + '\n')
+        file.write(entry_user1.get() + '\n') #entry_user.get() -> escreve o conteúdo do campo de entrada no arquivo, seguido por um caracter de nova linha '\n'
         file.write(entry_pass1.get() + '\n')
         file.write(entry_user2.get() + '\n')
         file.write(entry_pass2.get() + '\n')
@@ -207,11 +219,11 @@ def Switch_to_Valorant():
             lines = file.readlines()
 
             if len(lines) >= 1:
-                entry_user1_2.insert(0, lines[0].strip()) 
+                entry_user1_2.insert(0, lines[0].strip()) #0  -> começando na posição 0
             if len(lines) >= 2:
-                entry_pass1_2.insert(0, lines[1].strip()) 
+                entry_pass1_2.insert(0, lines[1].strip()) #lines[1] -> seria o número da linha contida no arquivo
             if len(lines) >= 3:
-                entry_user2_2.insert(0, lines[2].strip()) 
+                entry_user2_2.insert(0, lines[2].strip()) #.strip() -> Remove espaços em branco
             if len(lines) >= 4:
                 entry_pass2_2.insert(0, lines[3].strip())
             if len(lines) >= 5:
@@ -225,7 +237,7 @@ def Switch_to_Valorant():
         
     def save_account_data_valorant():
         with open(data_file2, 'w') as file:
-            file.write(entry_user1_2.get() + '\n') 
+            file.write(entry_user1_2.get() + '\n') #entry_user.get() -> escreve o conteúdo do campo de entrada no arquivo, seguido por um caracter de nova linha '\n'
             file.write(entry_pass1_2.get() + '\n')
             file.write(entry_user2_2.get() + '\n')
             file.write(entry_pass2_2.get() + '\n')
@@ -235,17 +247,25 @@ def Switch_to_Valorant():
             file.write(entry_pass4_2.get() + '\n')
         
     def execute_account_valorant(username, password):
+        Client = False
         if os.path.exists(data_path):
-            with open(data_path, 'r') as file:
+            with open(data_path, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
-                if len(lines) >= 1:
-                    value3 = Valorant_Open()
-                    if value3 == 1:
-                        value2 = CallRiot()
-                        value = Click(value2)
-                        typewrite_account(username, password, value)
-                        save_account_data_valorant()
-                        ClickOnValorant()
+
+                for line in lines:
+                    words_in_path = line.strip().split('/')
+                    for w in words_in_path:
+                        if ClientName.strip().lower() == w.strip().lower():
+                            Client = True
+                            value3 = Valorant_Open()
+                            if value3 == 1:
+                                value2 = CallRiot()
+                                value = Click(value2)
+                                typewrite_account(username, password, value)
+                                save_account_data_valorant()
+                                ClickOnValorant()
+                if Client == False:
+                    messagebox.showerror('Selecione o Riot Client', 'Riot Client não foi selecionado!')
         else:
             messagebox.showerror('Selecione o Riot Client', 'Riot Client não foi selecionado!')
             
@@ -504,6 +524,9 @@ def load_RiotClient_path():
                     else:
                         label_path.config(text="Riot Client não selecionado.")
 
+#threading.Thread() -> Cria a thread
+#threading.Thread(target=) -> qual função será executada quando a thread iniciar
+#threading.Thread(target=... args=) -> contém argumentos que serão passados para a função em 'target'
 
 def acc1():
     if not entry_user1.get() or not entry_pass1.get():
