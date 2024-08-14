@@ -62,13 +62,14 @@ def Click(number):
                         img2_1 = bot.locateCenterOnScreen(image2_1, confidence=0.9)
                         bot.click(img2_1.x, img2_1.y)
                         search = 61
+                        return 1
                     except:
                         search += 1
         if search == 60:
             return 0
     else:
         try:
-            time.sleep(1)
+            time.sleep(0.5)
             img4 = bot.locateCenterOnScreen(image4, confidence=0.9)
             if img4 is not None:
                 bot.click(img4.x, img4.y)
@@ -79,7 +80,15 @@ def Click(number):
                     bot.click(img4_1.x, img4.y)
                     return 1
                 else:
-                    raise ImageNotFoundException
+                    if img2 is not None:
+                        bot.click(img2.x, img2.y)
+                        return 1
+                    else:
+                        if img2_1 is not None:
+                            bot.click(img2_1.x, img2_1.y)
+                            return 1
+                        else:
+                            raise ImageNotFoundException
         except ImageNotFoundException:
             return 0
 
