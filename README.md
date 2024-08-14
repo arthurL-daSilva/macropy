@@ -2,13 +2,17 @@
 > Macro, an automatic login for League of Legends or Valorant games through the RiotClient
 
 # how it works?
-It's in early development, but already works on Windowns 11 and
-Only on Inglesh Riot Client.
-First of all, you have to put the path of RiotClient on the code.
+~It's in early development, but already works on Windowns 11 and
+Only on Inglesh Riot Client.~
+Only tested on Windows 11, you may get any bugs while testing but
+as far as I know, it will work properly 90% of the time.
+~First of all, you have to put the path of RiotClient on the code.~
+You no longer need to manage the code as the GUI will warn you if
+the RiotClient is not selected.
 When it starts, it will try to call for RiotClient, if it isnt
 already open. Then, will try to click on the Username box and do
 all the process. Finaly, it will click on League Of Legends and
-you will only click on Play and enjoy.
+you will only click on Play and enjoy. Also works on Valorant now.
 
 # Preview
 ![banner](https://github.com/arthurL-daSilva/macropy/blob/main/Img/Preview.png)
